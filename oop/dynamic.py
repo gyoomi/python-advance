@@ -15,27 +15,36 @@ class Person(object):
         print("eat food")
 
 
-# 运行的过程中给对象绑定(添加)属性
+# 1.运行的过程中给对象绑定(添加)属性
 # p = Person("tom", 23)
 # p.sex = None
 # print(p.sex)
 
-# 运行的过程中给类绑定(添加)属性
+# 2.运行的过程中给类绑定(添加)属性
 # Person.sex = 11
 # p = Person("tom", 23)
 # print(p.sex)
 
-# 运行的过程中给类绑定(添加)方法
+# 3.运行的过程中给类绑定(添加)方法
 
 def run(self, speed):
     print("%s在以%d速度移动" %(self.name, speed))
 
 
-p = Person("tom", 23)
+# p = Person("tom", 23)
 import types
 
-p.run = types.MethodType(run, p)
-p.run(99)
+# p.run = types.MethodType(run, p)
+# p.run(99)
+
+# 4.运行的过程中删除属性、方法
+p = Person("tom", 23)
+# del p.name
+delattr(p, "name")
+print(p.name)
+
+
+
 
 
 
